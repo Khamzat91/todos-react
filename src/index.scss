@@ -1,0 +1,13 @@
+.app {
+  max-width: 400px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 150px auto;
+  border: 1px solid rgb(134, 116, 116);
+  border-radius: 12px;
+  &__inner{
+    &.border{
+    border-top: 3px solid rgb(16, 5, 110);}
+    padding-top: 15px;
+  }
+}

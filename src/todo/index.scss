@@ -1,0 +1,51 @@
+
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  &__inner {
+    padding-bottom: 20px;
+    width: 100%;
+    &-box {
+      display: flex;
+      align-items: center;
+    }
+    &-title {
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px;
+      background-color: rgb(114, 29, 211);
+      max-width: 275px;
+      width: 100%;
+      margin-left: 10px;
+      margin-right: 20px;
+      margin-bottom: 5px;
+    
+    }
+    &-text{
+      border-radius: 10px;
+      color: #fff;
+      padding: 5px;
+      background-color: rgb(114, 29, 211);
+      max-width: 275px;
+      width: 100%;
+      margin-left: 30px;
+      margin-bottom: 5px;
+      word-wrap: break-word;
+    }
+    &-date{
+      margin-left: 30px;
+    }
+    &--completed{
+      opacity: 0.3;
+      text-decoration: line-through; 
+    }
+  }
+  &__icon-handler {
+    cursor: pointer;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -1,0 +1,67 @@
+.todo-list {
+  margin: 15px 0;
+
+  input,
+  textarea {
+    max-width: 270px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 5px;
+    border: 1px solid rgb(110, 118, 165);
+    outline: none;
+  }
+
+
+  &__inner {
+    &-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-title {
+      max-width: 270px;
+      width: 100%;
+    }
+    &-text {
+      textarea {
+        resize: none;
+        margin-top: 15px;
+        margin-left: 30px;
+      }
+    }
+    &-file {
+      display: block;
+      margin-left: 33px;
+      margin-top: 15px;
+      color: rgb(73, 62, 170);
+      font-weight: 700;
+      cursor: pointer;
+      input {
+        display: none;
+      }
+    }
+    &-date {
+      margin-bottom: 5px;
+      margin-left: 30px;
+      input{
+      margin-top: 15px;
+      }
+    
+    }
+    &-btn {
+      border: none;
+      background-color: rgb(84, 14, 196);
+      max-width: 82px;
+      width: 100%;
+      text-align: center;
+      padding: 6px;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+  }
+}
