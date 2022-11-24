@@ -1,5 +1,3 @@
-
-
 .todo {
   display: flex;
   justify-content: space-between;
@@ -8,37 +6,43 @@
     width: 100%;
     &-box {
       display: flex;
-      align-items: center;
     }
     &-title {
-      border-radius: 10px;
-      color: #fff;
-      padding: 5px;
-      background-color: rgb(114, 29, 211);
-      max-width: 275px;
-      width: 100%;
       margin-left: 10px;
-      margin-right: 20px;
       margin-bottom: 5px;
-    
-    }
-    &-text{
-      border-radius: 10px;
-      color: #fff;
-      padding: 5px;
-      background-color: rgb(114, 29, 211);
-      max-width: 275px;
       width: 100%;
+      &__box {
+        border-radius: 10px;
+        color: #fff;
+        padding: 5px;
+        background-color: rgb(114, 29, 211);
+        max-width: 275px;
+        width: 100%;
+      }
+    }
+    &-text {
       margin-left: 30px;
       margin-bottom: 5px;
-      word-wrap: break-word;
+      &__box {
+        border-radius: 10px;
+        color: #fff;
+        padding: 5px;
+        background-color: rgb(114, 29, 211);
+        max-width: 275px;
+        width: 100%;
+        word-wrap: break-word;
+      }
     }
-    &-date{
+    &-date {
       margin-left: 30px;
     }
-    &--completed{
+    &--completed {
       opacity: 0.3;
-      text-decoration: line-through; 
+      text-decoration: line-through;
+    }
+    &-files{
+      margin-left: 30px;
+      margin-top: 10px;
     }
   }
   &__icon-handler {

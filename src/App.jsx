@@ -43,14 +43,6 @@ function App() {
     setEditTask(null);
   };
 
-  // const onFilter = () => {
-  // setTodos(prev => prev.filter((i) => {
-  //   if (condition) {
-
-  //   }
-  // }))
-  // }
-
   return (
     <div className="app">
       <TodoForm addTask={addTask} editTask={editTask} onEditTask={onEditTask} />

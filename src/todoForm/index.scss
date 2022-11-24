@@ -1,4 +1,4 @@
-.todo-list {
+.todo-form {
   margin: 15px 0;
 
   input,
@@ -11,7 +11,6 @@
     border: 1px solid rgb(110, 118, 165);
     outline: none;
   }
-
 
   &__inner {
     &-box {
@@ -32,7 +31,11 @@
       }
     }
     &-file {
-      display: block;
+      max-width: 275px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-left: 33px;
       margin-top: 15px;
       color: rgb(73, 62, 170);
@@ -45,10 +48,9 @@
     &-date {
       margin-bottom: 5px;
       margin-left: 30px;
-      input{
-      margin-top: 15px;
+      input {
+        margin-top: 15px;
       }
-    
     }
     &-btn {
       border: none;
@@ -62,6 +64,10 @@
       border-radius: 12px;
       cursor: pointer;
       margin-left: 10px;
+    }
+    &-icon {
+      width: 16px;
+      height: 16px;
     }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import xbutton from "../images/x-button.png";
 import "./index.scss";
 
 const TodoForm = ({ addTask, editTask, onEditTask }) => {
@@ -14,7 +15,7 @@ const TodoForm = ({ addTask, editTask, onEditTask }) => {
     })
   );
   const fileRef = useRef();
-  console.log(files);
+
 
   const handleCompleted = (e) => {
     setIsCompleted(e.target.checked);
@@ -22,6 +23,7 @@ const TodoForm = ({ addTask, editTask, onEditTask }) => {
 
   const handleChangeTitle = (e) => {
     setTitle(e.target.value);
+
   };
 
   const handleChangeText = (e) => {
@@ -35,7 +37,9 @@ const TodoForm = ({ addTask, editTask, onEditTask }) => {
     setFiles(e.target.files);
   };
 
-  const clearFiles = () => {
+  const clearFiles = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
     setFiles([])
     fileRef.current.value = "";
   }
@@ -64,30 +68,29 @@ const TodoForm = ({ addTask, editTask, onEditTask }) => {
   }, [editTask]);
 
   return (
-    //изменить название классов
-    <div className="todo-list">
-      <form onSubmit={handleSubmit} className="todo-list__inner">
-        <div className="todo-list__inner-box">
-          <label className="todo-list__inner-checked">
+    <div className="todo-form">
+      <form onSubmit={handleSubmit} className="todo-form__inner">
+        <div className="todo-form__inner-box">
+          <label className="todo-form__inner-checked">
             <input
               checked={isCompleted}
               onChange={handleCompleted}
               type="checkbox"
             />
           </label>
-          <label className="todo-list__inner-title">
+          <label className="todo-form__inner-title">
             <input
               value={title}
               onChange={handleChangeTitle}
               type="text"
-              placeholder="Введите текст задачи..."
+              placeholder="Введите заголовок задачи..."
             />
           </label>
-          <button className="todo-list__inner-btn">
+          <button className="todo-form__inner-btn">
             {editTask ? "Изменить" : "Добавить"}
           </button>
         </div>
-        <label className="todo-list__inner-text">
+        <label className="todo-form__inner-text">
           <textarea
             value={text}
             onChange={handleChangeText}
@@ -95,16 +98,17 @@ const TodoForm = ({ addTask, editTask, onEditTask }) => {
             placeholder="Введите описание задачи..."
           />
         </label>
-        <label className="todo-list__inner-date">
+        <label className="todo-form__inner-date">
           <input
             value={datetime}
             onChange={handleChangeDate}
             type="datetime-local"
           />
         </label>
-        <label className="todo-list__inner-file">
+        <label className="todo-form__inner-file">
           <input ref={fileRef} onChange={handleChangeFile} type="file" />
           Выбранные файлы: {files.length} 
+          {!!files.length && <img onClick={clearFiles} className="todo-form__inner-icon" src={xbutton} alt="" />}
         </label>
       </form>
     </div>

@@ -10,30 +10,56 @@ const ToDo = ({ todo, removeTask, setEditTask }) => {
   console.log(todo);
   return (
     <div className="todo">
-      <div className={`todo__inner ${(todo.completed || getCompletedEndDate(todo.date)) && 'todo__inner--completed'}`}>
+      <div
+        className={`todo__inner ${
+          (todo.completed || getCompletedEndDate(todo.date)) &&
+          "todo__inner--completed"
+        }`}
+      >
         <div className="todo__inner-box">
           {todo.completed || getCompletedEndDate(todo.date) ? (
-            <img src={checked} alt="" className="todo__icon" />
+            <img
+              title="Задача завершена"
+              src={checked}
+              alt=""
+              className="todo__icon"
+            />
           ) : (
-            <img src={clock} alt="" className="todo__icon" />
+            <img
+              title="Время ожидания"
+              src={clock}
+              alt=""
+              className="todo__icon"
+            />
           )}
-          <div className="todo__inner-title">{todo.task}</div>
+          <div className="todo__inner-title">
+            Заголовок:
+            <div className="todo__inner-title__box">{todo.task}</div>
+          </div>
         </div>
-        <div className="todo__inner-text">{todo.description}</div>
-        <div className="todo__inner-files">Количество файлов:{todo.files?.length}</div>
-        <div className="todo__inner-date">{todo.date}</div>
+
+        <div className="todo__inner-text">
+          Описание:
+          <div className="todo__inner-text__box">{todo.description}</div>
+        </div>
+        <div className="todo__inner-files">
+          Количество файлов: {todo.files?.length}
+        </div>
+        <div className="todo__inner-date">Конечная дата: {todo.date}</div>
       </div>
       <div className="todo__icons">
         <img
           onClick={() => setEditTask(todo)}
           src={pen}
           alt=""
+          title="Редактировать задачу"
           className="todo__icon todo__icon-handler"
         />
         <img
           onClick={() => removeTask(todo.id)}
           src={trash}
           alt=""
+          title="Удалить задачу"
           className="todo__icon todo__icon-handler"
         />
       </div>
