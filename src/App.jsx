@@ -7,40 +7,110 @@ function App() {
   const [todos, setTodos] = React.useState([]);
   const [editTask, setEditTask] = React.useState(null);
 
-  const addTask = (title, text, isCompleted, datetime, files) => {
-    console.log(files);
+  const getTask = async () => {
+    try {
+      const response = await fetch(
+        `https://613a6e0e1fcce10017e78ec4.mockapi.io/tasks`
+      );
+      if (!response.ok) {
+        Error("произошла ошибка");
+      }
+      const result = await response.json();
+      setTodos(result);
+    } catch (error) {
+      console.error();
+    }
+  };
+
+  const addTask = async (title, text, isCompleted, datetime, files) => {
     if (title) {
       const newItem = {
-        id: Math.random().toString(36).substring(2, 9),
         task: title,
         description: text,
         date: datetime,
         completed: isCompleted,
-        files,
+        files
       };
-      setTodos((prev) => [...prev, newItem]);
-    }
-  };
-  const removeTask = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id));
-    if (id === editTask.id) {
-      setEditTask(null);
+      try {
+        const response = await fetch(
+          `https://613a6e0e1fcce10017e78ec4.mockapi.io/tasks`,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(newItem),
+          }
+        );
+        if (!response.ok) {
+          Error("произошла ошибка");
+        }
+        getTask();
+      } catch (error) {
+        console.error();
+      }
     }
   };
 
-  const onEditTask = (title, text, isCompleted, datetime, files) => {
-    const newList = todos.map((todo) => {
-      if (todo.id === editTask.id) {
-        todo.task = title;
-        todo.description = text;
-        todo.completed = isCompleted;
-        todo.date = datetime;
-        todo.files = files;
+
+  const removeTask = async (id) => {
+    try {
+      const response = await fetch(
+        `https://613a6e0e1fcce10017e78ec4.mockapi.io/tasks/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        Error("произошла ошибка");
       }
-      return todo;
-    });
-    setTodos(newList);
-    setEditTask(null);
+      getTask();
+      if (id === editTask.id) {
+        setEditTask(null);
+      }
+    } catch (error) {
+      console.error();
+    }
+  };
+
+  React.useEffect(() => {
+    getTask();
+  }, []);
+
+  const onEditTask = async (title, text, isCompleted, datetime, files) => {
+    const newItem = {
+      task: title,
+      description: text,
+      completed: isCompleted,
+      date: datetime,
+      files: files,
+    };
+    try {
+      console.log(JSON.stringify(newItem), newItem);
+      const response = await fetch(
+        `https://613a6e0e1fcce10017e78ec4.mockapi.io/tasks/${editTask.id}`,
+        {
+          method: "PUT",
+          headers: {
+            Accept: "application/json",
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(newItem),
+        }
+      );
+      if (!response.ok) {
+        Error("произошла ошибка");
+      }
+      getTask();
+      setEditTask(null);
+    } catch (error) {
+      console.error();
+    }
   };
 
   return (

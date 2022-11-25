@@ -7,7 +7,6 @@ import "./index.scss";
 import { getCompletedEndDate } from "./getCompletedEndDate";
 
 const ToDo = ({ todo, removeTask, setEditTask }) => {
-  console.log(todo);
   return (
     <div className="todo">
       <div
