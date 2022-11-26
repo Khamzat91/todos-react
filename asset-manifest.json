@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/womanUp-todo-react/static/css/main.0f0d66ef.css",
+    "main.js": "/womanUp-todo-react/static/js/main.0c8d1ec7.js",
+    "static/media/x-button.png": "/womanUp-todo-react/static/media/x-button.5cc943d27eb3ed685271.png",
+    "static/media/checked.png": "/womanUp-todo-react/static/media/checked.b0d73578e48959457709.png",
+    "static/media/clock.png": "/womanUp-todo-react/static/media/clock.48328942dad9c5e93db5.png",
+    "index.html": "/womanUp-todo-react/index.html",
+    "static/media/pen.svg": "/womanUp-todo-react/static/media/pen.7290c69eecaea4ec0e68dd9bda01715e.svg",
+    "static/media/trash.svg": "/womanUp-todo-react/static/media/trash.07202d87d8652f8e532731d744c9164f.svg",
+    "main.0f0d66ef.css.map": "/womanUp-todo-react/static/css/main.0f0d66ef.css.map",
+    "main.0c8d1ec7.js.map": "/womanUp-todo-react/static/js/main.0c8d1ec7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0f0d66ef.css",
+    "static/js/main.0c8d1ec7.js"
+  ]
+}
