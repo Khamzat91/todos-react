@@ -6,6 +6,12 @@ import clock from "../images/clock.png";
 import "./index.scss";
 import { getCompletedEndDate } from "./getCompletedEndDate";
 
+/**
+ * Компонент отрисовки одной задачи
+ * @param {object} todo - объект данных для заполнение задач  
+ * @param {funtion} removeTask - функция для удаления задачи  
+ * @return {React.Component} 
+ */
 const ToDo = ({ todo, removeTask, setEditTask }) => {
   return (
     <div className="todo">
